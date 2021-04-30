@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "OstrichSans-Heavy";
+  src: url("/fonts/OstrichSans-Heavy.otf");
+  /* font-style: normal;
+  font-weight: 400;
+  font-display: swap; */
+}
+
+body {
+  font-family: OstrichSans-Heavy;
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -47,4 +59,65 @@
   width: 100%;
   height: 400px;
   z-index: 0;
+}
+
+.second_section {
+  width: 100%;
+  height: 514px;
+  background-color: #009499;
+  position: relative;
+}
+
+.filter_container {
+  width: 95%;
+  height: 644px;
+  position: absolute;
+  top: -65px;
+  bottom: -65px;
+  left: 2.5%;
+  z-index: 5;
+}
+
+.third_section {
+  width: 100%;
+  height: 1000px;
+  background-color: #ebebeb;
+  position: relative;
+}
+
+.types {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 50px 40px 0 70px;
+}
+
+.type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.type h2 {
+  font-weight: 300;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 50px 0 auto;
+  color: #009499;
+}
+
+.nav_item {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav_item h2 {
+  font-weight: 400;
+  font-size: 30px;
 }
