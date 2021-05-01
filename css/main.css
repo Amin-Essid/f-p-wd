@@ -15,6 +15,8 @@ body {
   margin: 0 auto;
 }
 
+/* *******************************HEADER************************************************************************ */
+
 .header {
   position: relative;
   height: 100%;
@@ -55,12 +57,31 @@ body {
   z-index: 1;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 50px 0 auto;
+  color: #009499;
+}
+
+.nav_item {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav_item h2 {
+  font-weight: 400;
+  font-size: 30px;
+}
+
 .hero {
   width: 100%;
   height: 400px;
   z-index: 0;
 }
 
+/* *******************************FILTER************************************************************************ */
 .second_section {
   width: 100%;
   height: 514px;
@@ -104,20 +125,76 @@ body {
   font-weight: 300;
 }
 
-.nav {
+.selected_type {
+  border-bottom: 5px solid #ff5300;
+}
+
+.middle_filter {
+  position: relative;
+  margin: 270px auto 0 auto;
+  z-index: 5;
+  width: 70%;
+  padding: 30px 0;
+  border-top: 1px dotted black;
+  border-bottom: 1px dotted black;
+}
+
+.middle_filter > div {
   display: flex;
   justify-content: space-between;
-  width: 60%;
-  margin: 0 50px 0 auto;
-  color: #009499;
+  min-width: 100px;
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 36px;
 }
 
-.nav_item {
-  text-decoration: none;
-  cursor: pointer;
+/* .radio {
+} */
+
+input[type="radio"]:not(old) {
+  width: 28px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
 }
 
-.nav_item h2 {
-  font-weight: 400;
-  font-size: 30px;
+input[type="radio"]:not(old) + label {
+  display: inline-block;
+  margin-left: -28px;
+  padding-left: 35px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  background: url("/unchecked.png") no-repeat 0 0;
+  line-height: 24px;
+}
+
+.checked_op {
+  background: url("/checked.png") no-repeat 0 0 !important;
+  color: #ff5300;
+}
+
+.second_filter {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 100px auto 0 auto;
+  z-index: 5;
+  width: 70%;
+}
+
+.select_div {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.select_div_label {
+  font-size: 36px;
+  font-weight: 500;
+  font-family: OstrichSans-Heavy;
+}
+
+.select_div select {
+  font-size: 24px;
+  width: 200px;
+  height: 50px;
 }

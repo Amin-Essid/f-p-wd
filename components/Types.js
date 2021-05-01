@@ -34,8 +34,8 @@ export default function Types() {
   return (
     <>
       <div className="types">
-        {types.map((type) => (
-          <div className="type">
+        {types.map((type, i) => (
+          <div key={i} className="type ">
             <Image src={type.image} width={180} height={100} />
             <h2>{type.type}</h2>
           </div>

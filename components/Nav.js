@@ -34,8 +34,8 @@ export default function Nav() {
   return (
     <>
       <div className="nav">
-        {types.map((type) => (
-          <div className="nav_item">
+        {types.map((type, i) => (
+          <div key={i} className="nav_item">
             <Link href={type.link}>
               <h2>{type.type}</h2>
             </Link>
