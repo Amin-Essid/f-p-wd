@@ -148,8 +148,9 @@ body {
   font-size: 36px;
 }
 
-/* .radio {
-} */
+.radio {
+  cursor: pointer;
+}
 
 input[type="radio"]:not(old) {
   width: 28px;
@@ -197,4 +198,12 @@ input[type="radio"]:not(old) + label {
   font-size: 24px;
   width: 200px;
   height: 50px;
+}
+
+.minmax {
+  display: inline-block;
+  width: 100px;
+}
+.minmax div {
+  display: inline-block;
 }

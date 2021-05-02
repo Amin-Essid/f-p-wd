@@ -30,16 +30,31 @@ let types = [
   },
 ];
 
-export default function Types() {
+export default function Types({ type, setType }) {
   return (
     <>
       <div className="types">
-        {types.map((type, i) => (
-          <div key={i} className="type ">
-            <Image src={type.image} width={180} height={100} />
-            <h2>{type.type}</h2>
-          </div>
-        ))}
+        {types.map((t, i) => {
+          if (type === t.type) {
+            return (
+              <div
+                onClick={() => setType(t.type)}
+                key={i}
+                className="type selected_type"
+              >
+                <Image src={t.image} width={180} height={100} />
+                <h2>{t.type}</h2>
+              </div>
+            );
+          } else {
+            return (
+              <div onClick={() => setType(t.type)} key={i} className="type ">
+                <Image src={t.image} width={180} height={100} />
+                <h2>{t.type}</h2>
+              </div>
+            );
+          }
+        })}
       </div>
     </>
   );
