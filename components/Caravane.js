@@ -10,34 +10,34 @@ import Image from "next/image";
 export default function Caravane({ carvane, setCarvane }) {
   let firstClass = "",
     secondClass = "";
-  if (carvane === "New Caravane") {
+  if (carvane === "new") {
     (firstClass = "checked_op radio"), (secondClass = "radio");
-  } else if (carvane === "Used Caravane") {
+  } else if (carvane === "old") {
     (secondClass = "checked_op radio"), (firstClass = "radio");
   }
   return (
     <>
       <div defaultValue={carvane} className="middle_filter">
         <div>
-          <div onClick={() => setCarvane("New Caravane")} className="radio">
+          <div onClick={() => setCarvane("new")} className="radio">
             <input
               type="radio"
               id="New Caravane"
               name="New Caravane"
               value="New Caravane"
             />
-            <label for="New Caravane" className={firstClass}>
+            <label htmlFor="New Caravane" className={firstClass}>
               New Caravane
             </label>
           </div>
-          <div onClick={() => setCarvane("Used Caravane")} className="radio">
+          <div onClick={() => setCarvane("old")} className="radio">
             <input
               type="radio"
               id="Used Caravane"
               name="Used Caravane"
               value="Used Caravane"
             />
-            <label className={secondClass} for="Used Caravane">
+            <label className={secondClass} htmlFor="Used Caravane">
               Used Caravane
             </label>
           </div>

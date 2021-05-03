@@ -9,23 +9,28 @@ import Image from "next/image";
 
 let types = [
   {
-    type: "Célula 4x4",
+    title: "Célula 4x4",
+    type: "cell4x4",
     image: "/type_cell.png",
   },
   {
-    type: "Camper",
+    title: "Camper",
+    type: "camper",
     image: "/type_camper.png",
   },
   {
-    type: "Perfilada",
+    title: "Perfilada",
+    type: "perfilada",
     image: "/type_perfilada.png",
   },
   {
-    type: "Capuchina",
+    title: "Capuchina",
+    type: "capuchina",
     image: "/type_capuchina.png",
   },
   {
-    type: "Integral",
+    title: "Integral",
+    type: "integral",
     image: "/type_integral.png",
   },
 ];
@@ -43,7 +48,7 @@ export default function Types({ type, setType }) {
                 className="type selected_type"
               >
                 <Image src={t.image} width={180} height={100} />
-                <h2>{t.type}</h2>
+                <h2>{t.title}</h2>
               </div>
             );
           } else {

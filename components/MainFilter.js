@@ -27,7 +27,7 @@ export default function MainFilter({
           <Caravane carvane={carvane} setCarvane={setCarvane} />
           <div className="second_filter">
             <div className="select_div">
-              <label className="select_div_label" for="cars">
+              <label className="select_div_label" htmlFor="cars">
                 Brand
               </label>
               <select
@@ -38,17 +38,12 @@ export default function MainFilter({
                 form="carform"
                 defaultValue=""
               >
-                <option disabled value="">
-                  All
-                </option>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
+                <option value={null}>All</option>
+                <option value="Hotomobil">Hotomobil</option>
               </select>
             </div>
             <div className="select_div">
-              <label className="select_div_label" for="cars">
+              <label className="select_div_label" htmlFor="cars">
                 Model
               </label>
               <select
@@ -59,11 +54,8 @@ export default function MainFilter({
                 id="cars"
                 form="carform"
               >
-                <option value="">All</option>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
+                <option value={null}>All</option>
+                <option value="Gladiator">Gladiator</option>
               </select>
             </div>
             <div className="select_div">
