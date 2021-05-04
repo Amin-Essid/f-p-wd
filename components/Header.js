@@ -25,7 +25,7 @@ export default function Header() {
           <Image width={301} height={363} src="/logo.png" />
         </div>
         <div className="hero">
-          <Image layout="fill" src="/hero.png" />
+          <Image id="banner" layout="fill" src="/hero.png" />
         </div>
       </div>
     </>

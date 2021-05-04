@@ -22,7 +22,7 @@ export default function MainFilter({
     <>
       <div className="second_section">
         <div className="filter_container">
-          <Image layout="fill" src="/filter.png" />
+          <Image id="white-shape" layout="fill" src="/filter.png" />
           <Types type={type} setType={setType} />
           <Caravane carvane={carvane} setCarvane={setCarvane} />
           <div className="second_filter">
