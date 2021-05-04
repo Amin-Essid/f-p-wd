@@ -261,10 +261,6 @@ input[type="radio"]:not(old) + label {
     padding: 0;
   }
 
-  .hero {
-    display: none;
-  }
-
   .navbar {
     width: 100%;
     display: flex;
@@ -275,7 +271,6 @@ input[type="radio"]:not(old) + label {
 
   .nav {
     flex-wrap: wrap;
-    margin-top: 50px;
     width: 100%;
   }
 
@@ -291,5 +286,14 @@ input[type="radio"]:not(old) + label {
   .minmax {
     width: auto;
     margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .hero {
+    display: none;
+  }
+  .nav {
+    margin-top: 50px;
   }
 }
