@@ -10,14 +10,22 @@ import CarsMenu from "../components/CarsMenu";
 export default function Home({ cars }) {
   // const { suggestions } = data;
   const [type, setType] = useState(null);
-  const [carvane, setCarvane] = useState(null);
+  const [carvane, setCarvane] = useState(false);
+  const [oldCarvane, setOldCarvane] = useState(false);
 
   const [brand, setBrand] = useState(null);
   const [model, seModel] = useState(null);
 
+  const [cell4x4, seCell4x4] = useState(false);
+  const [camper, seCamper] = useState(false);
+  const [perfilada, sePerfilada] = useState(false);
+  const [capuchina, seCapuchina] = useState(false);
+  const [integral, seIntegral] = useState(false);
+
   const [range, setRange] = useState([0, 100]);
 
-  console.log(cars);
+  // console.log(cars);
+  console.log(oldCarvane);
 
   return (
     <div className="container">
@@ -33,21 +41,36 @@ export default function Home({ cars }) {
           setType={setType}
           carvane={carvane}
           setCarvane={setCarvane}
-          // brand={brand}
           setBrand={setBrand}
-          // model={model}
           seModel={seModel}
           setRange={setRange}
           range={range}
+          oldCarvane={oldCarvane}
+          setOldCarvane={setOldCarvane}
+          seCell4x4={seCell4x4}
+          seCamper={seCamper}
+          sePerfilada={sePerfilada}
+          seCapuchina={seCapuchina}
+          seIntegral={seIntegral}
+          cell4x4={cell4x4}
+          camper={camper}
+          perfilada={perfilada}
+          capuchina={capuchina}
+          integral={integral}
         />
         <CarsMenu
           type={type}
           carvane={carvane}
           brand={brand}
           model={model}
-          setRange={setRange}
           range={range}
           cars={cars}
+          oldCarvane={oldCarvane}
+          cell4x4={cell4x4}
+          camper={camper}
+          perfilada={perfilada}
+          capuchina={capuchina}
+          integral={integral}
         />
       </main>
     </div>

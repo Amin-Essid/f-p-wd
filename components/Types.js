@@ -1,64 +1,103 @@
-// second_section
-import Head from "next/head";
-import Link from "next/link";
-import { useEffect } from "react";
-import firebase from "../firebase/clientApp";
-// import rectangle from "../images/header_rectangle.png";
-// import gladiator from "../images/gladiatorbasica_thumbnail.png";
 import Image from "next/image";
 
-let types = [
-  {
-    title: "Célula 4x4",
-    type: "cell4x4",
-    image: "/type_cell.png",
-  },
-  {
-    title: "Camper",
-    type: "camper",
-    image: "/type_camper.png",
-  },
-  {
-    title: "Perfilada",
-    type: "perfilada",
-    image: "/type_perfilada.png",
-  },
-  {
-    title: "Capuchina",
-    type: "capuchina",
-    image: "/type_capuchina.png",
-  },
-  {
-    title: "Integral",
-    type: "integral",
-    image: "/type_integral.png",
-  },
-];
+export default function Types({
+  cell4x4,
+  camper,
+  perfilada,
+  capuchina,
+  integral,
+  seCell4x4,
+  seCamper,
+  sePerfilada,
+  seCapuchina,
+  seIntegral,
+}) {
+  let cell4x4Class = "radio",
+    camperClass = "radio",
+    perfiladaClass = "radio",
+    capuchinaClass = "radio",
+    integralClass = "radio";
 
-export default function Types({ type, setType }) {
+  if (cell4x4 === true) {
+    cell4x4Class = "checked_op radio";
+  }
+  if (camper === true) {
+    camperClass = "checked_op radio";
+  }
+  if (perfilada === true) {
+    perfiladaClass = "checked_op radio";
+  }
+  if (capuchina === true) {
+    capuchinaClass = "checked_op radio";
+  }
+  if (integral === true) {
+    integralClass = "checked_op radio";
+  }
+
+  let types = [
+    {
+      title: "Célula 4x4",
+      type: "cell4x4",
+      image: "/type_cell.png",
+      class: cell4x4Class,
+      fun: seCell4x4,
+    },
+    {
+      title: "Camper",
+      type: "camper",
+      image: "/type_camper.png",
+      class: camperClass,
+      fun: seCamper,
+    },
+    {
+      title: "Perfilada",
+      type: "perfilada",
+      image: "/type_perfilada.png",
+      class: perfiladaClass,
+      fun: sePerfilada,
+    },
+    {
+      title: "Capuchina",
+      type: "capuchina",
+      image: "/type_capuchina.png",
+      class: capuchinaClass,
+      fun: seCapuchina,
+    },
+    {
+      title: "Integral",
+      type: "integral",
+      image: "/type_integral.png",
+      class: integralClass,
+      fun: seIntegral,
+    },
+  ];
+
   return (
     <>
       <div className="types">
         {types.map((t, i) => {
-          if (type === t.type) {
-            return (
-              <div
-                onClick={() => setType(t.type)}
-                key={i}
-                className="type selected_type"
-              >
-                <Image src={t.image} width={180} height={100} />
-                <h2>{t.title}</h2>
+          return (
+            <div
+              key={i}
+              onClick={(e) => t.fun(e.target.checked)}
+              key={i}
+              className="type "
+            >
+              <Image src={t.image} width={180} height={100} />
+              <div style={{ marginTop: "15px" }} className="radio">
+                <input
+                  type="checkbox"
+                  id={t.title}
+                  name={t.title}
+                  value={t.title}
+                />
+                <label htmlFor={t.title} className={t.class}>
+                  {t.title}
+                </label>
               </div>
-            );
-          } else {
-            return (
-              <div onClick={() => setType(t.type)} key={i} className="type ">
-                <Image src={t.image} width={180} height={100} />
-                <h2>{t.type}</h2>
-              </div>
-            );
-          }
+            </div>
+          );
+          // }
         })}
       </div>
     </>

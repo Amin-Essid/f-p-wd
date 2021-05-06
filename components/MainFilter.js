@@ -1,5 +1,6 @@
 // second_section
 import Head from "next/head";
+import * as React from "react";
 import Link from "next/link";
 import { useEffect } from "react";
 import firebase from "../firebase/clientApp";
@@ -8,7 +9,7 @@ import Caravane from "../components/Caravane";
 import Image from "next/image";
 import CustomizedSlider from "../components/Slider";
 
-export default function MainFilter({
+const MainFilter = ({
   type,
   setType,
   carvane,
@@ -17,14 +18,42 @@ export default function MainFilter({
   seModel,
   range,
   setRange,
-}) {
+  oldCarvane,
+  setOldCarvane,
+  cell4x4,
+  camper,
+  perfilada,
+  capuchina,
+  integral,
+  seCell4x4,
+  seCamper,
+  sePerfilada,
+  seCapuchina,
+  seIntegral,
+}) => {
   return (
     <>
       <div className="second_section">
         <div className="filter_container">
           <Image id="white-shape" layout="fill" src="/filter.png" />
-          <Types type={type} setType={setType} />
-          <Caravane carvane={carvane} setCarvane={setCarvane} />
+          <Types
+            cell4x4={cell4x4}
+            camper={camper}
+            perfilada={perfilada}
+            capuchina={capuchina}
+            integral={integral}
+            seCell4x4={seCell4x4}
+            seCamper={seCamper}
+            sePerfilada={sePerfilada}
+            seCapuchina={seCapuchina}
+            seIntegral={seIntegral}
+          />
+          <Caravane
+            carvane={carvane}
+            setCarvane={setCarvane}
+            oldCarvane={oldCarvane}
+            setOldCarvane={setOldCarvane}
+          />
           <div className="second_filter">
             <div className="select_div">
               <label className="select_div_label" htmlFor="cars">
@@ -66,4 +95,6 @@ export default function MainFilter({
       </div>
     </>
   );
-}
+};
+
+export default React.memo(MainFilter);

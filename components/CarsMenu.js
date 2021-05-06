@@ -10,20 +10,60 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function fiterData(data, type, carvane, brand, model, range) {
+function fiterData(
+  data,
+  type,
+  carvane,
+  brand,
+  model,
+  range,
+  oldCarvane,
+  cell4x4,
+  camper,
+  perfilada,
+  capuchina,
+  integral
+) {
   let cars = data;
-  console.log(data, type, carvane, brand, model, range);
-  if (type) {
-    cars = cars.filter((car) => car.type === type);
-  }
-  if (carvane) {
-    let n = null;
-    if (carvane === "new") {
-      n = true;
-    } else if (carvane === "old") {
-      n = false;
+  // console.log(data, type, carvane, brand, model, range);
+  console.log("old :" + oldCarvane);
+  console.log(cell4x4, camper, perfilada, capuchina, integral);
+  if (cell4x4 || camper || perfilada || capuchina || integral) {
+    let typedCars = [];
+    if (cell4x4) {
+      let temp = cars.filter((car) => car.type === "cell4x4");
+      console.log(temp);
+      typedCars = typedCars.concat(temp);
     }
-    cars = cars.filter((car) => car.new === n);
+    if (camper) {
+      let temp = cars.filter((car) => car.type === "camper");
+      typedCars.concat(temp);
+      typedCars = typedCars.concat(temp);
+    }
+    if (perfilada) {
+      let temp = cars.filter((car) => car.type === "perfilada");
+      typedCars.concat(temp);
+      typedCars = typedCars.concat(temp);
+    }
+    if (capuchina) {
+      let temp = cars.filter((car) => car.type === "capuchina");
+      typedCars.concat(temp);
+      typedCars = typedCars.concat(temp);
+    }
+    if (integral) {
+      let temp = cars.filter((car) => car.type === "integral");
+      typedCars.concat(temp);
+      typedCars = typedCars.concat(temp);
+    }
+    cars = typedCars;
+  }
+  console.log(cars);
+  if (carvane && !oldCarvane) {
+    cars = cars.filter((car) => car.new === true);
+  }
+  if (oldCarvane && !carvane) {
+    cars = cars.filter((car) => car.new === false);
+    console.log("aasbba");
   }
   if (brand) {
     cars = cars.filter((car) => car.brand === brand);
@@ -44,11 +84,29 @@ export default function CarsMenu({
   brand,
   model,
   range,
-  setRange,
   cars,
+  oldCarvane,
+  cell4x4,
+  camper,
+  perfilada,
+  capuchina,
+  integral,
 }) {
-  cars = fiterData(cars, type, carvane, brand, model, range);
-  console.log(cars);
+  cars = fiterData(
+    cars,
+    type,
+    carvane,
+    brand,
+    model,
+    range,
+    oldCarvane,
+    cell4x4,
+    camper,
+    perfilada,
+    capuchina,
+    integral
+  );
+  // console.log(cars);
   return (
     <>
       <div className="third_section">
@@ -67,8 +125,8 @@ export default function CarsMenu({
         <div className="cars">
           {!cars && <div>LOADING ...</div>}
           {cars &&
-            cars.map((car) => (
-              <div className="car">
+            cars.map((car, i) => (
+              <div key={i} className="car">
                 <img
                   style={{ width: "200px", height: "150px" }}
                   src={car.image}

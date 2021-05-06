@@ -42,7 +42,7 @@ body {
   top: 30px;
   left: 0;
   /* margin-left: -174; */
-  z-index: 2;
+  z-index: 10;
 }
 
 .navbar {
@@ -118,10 +118,8 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-}
-
-.type h2 {
   font-weight: 300;
+  font-size: 20px;
 }
 
 .selected_type {
@@ -152,14 +150,14 @@ body {
   cursor: pointer;
 }
 
-input[type="radio"]:not(old) {
+input[type="checkbox"]:not(old) {
   width: 28px;
   margin: 0;
   padding: 0;
   opacity: 0;
 }
 
-input[type="radio"]:not(old) + label {
+input[type="checkbox"]:not(old) + label {
   display: inline-block;
   margin-left: -28px;
   padding-left: 35px;
@@ -309,7 +307,7 @@ input[type="radio"]:not(old) + label {
     justify-content: space-between;
   }
   .type {
-    width: 100px !important;
+    width: 150px !important;
   }
 }
 

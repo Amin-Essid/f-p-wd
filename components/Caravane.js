@@ -7,21 +7,28 @@ import firebase from "../firebase/clientApp";
 // import gladiator from "../images/gladiatorbasica_thumbnail.png";
 import Image from "next/image";
 
-export default function Caravane({ carvane, setCarvane }) {
-  let firstClass = "",
-    secondClass = "";
-  if (carvane === "new") {
-    (firstClass = "checked_op radio"), (secondClass = "radio");
-  } else if (carvane === "old") {
-    (secondClass = "checked_op radio"), (firstClass = "radio");
+export default function Caravane({
+  carvane,
+  setCarvane,
+  oldCarvane,
+  setOldCarvane,
+}) {
+  let firstClass = "radio",
+    secondClass = "radio";
+  console.log(carvane, oldCarvane);
+  if (carvane === true) {
+    firstClass = "checked_op radio";
+  }
+  if (oldCarvane === true) {
+    secondClass = "checked_op radio";
   }
   return (
     <>
       <div defaultValue={carvane} className="middle_filter">
         <div>
-          <div onClick={() => setCarvane("new")} className="radio">
+          <div onClick={(e) => setCarvane(e.target.checked)} className="radio">
             <input
-              type="radio"
+              type="checkbox"
               id="New Caravane"
               name="New Caravane"
               value="New Caravane"
@@ -30,9 +37,12 @@ export default function Caravane({ carvane, setCarvane }) {
               New Caravane
             </label>
           </div>
-          <div onClick={() => setCarvane("old")} className="radio">
+          <div
+            onClick={(e) => setOldCarvane(e.target.checked)}
+            className="radio"
+          >
             <input
-              type="radio"
+              type="checkbox"
               id="Used Caravane"
               name="Used Caravane"
               value="Used Caravane"
