@@ -5,6 +5,7 @@ import firebase from "../firebase/clientApp";
 import Header from "../components/Header";
 import MainFilter from "../components/MainFilter";
 import CarsMenu from "../components/CarsMenu";
+import Footer from "../components/Footer";
 // import { useCollectionData } from "react-firebase-hooks/firestore";
 
 export default function Home({ cars }) {
@@ -71,6 +72,7 @@ export default function Home({ cars }) {
           capuchina={capuchina}
           integral={integral}
         />
+        <Footer />
       </main>
     </div>
   );

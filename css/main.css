@@ -105,16 +105,25 @@ body {
 }
 
 .types {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 90%;
-  padding: 50px 40px 0 70px;
+  max-width: 1100px;
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+.types_col {
+  display: flex;
+
+  /* justify-content: space-between; */
 }
 
 .type {
   display: flex;
+  margin: 0 20px;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
@@ -128,7 +137,7 @@ body {
 
 .middle_filter {
   position: relative;
-  margin: 270px auto 0 auto;
+  margin: 20px auto 0 auto;
   z-index: 5;
   width: 70%;
   padding: 30px 0;
@@ -223,7 +232,7 @@ input[type="checkbox"]:not(old) + label {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 70px auto;
+  margin: 70px auto 0 auto;
 }
 
 .car {
@@ -242,6 +251,23 @@ input[type="checkbox"]:not(old) + label {
   background-color: #e7e7e7;
   width: 100%;
   padding: 20px 0;
+}
+
+.footer {
+  width: 100%;
+  min-height: 60px;
+  background-color: #009499;
+}
+
+.footer-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 1320px) {
+  .type {
+    width: 150px !important;
+    margin: 0 10px;
+  }
 }
 
 @media only screen and (max-width: 1050px) {
@@ -264,23 +290,13 @@ input[type="checkbox"]:not(old) + label {
     padding: 0;
   }
 
-  /* .navbar {
-    width: 60%;
-    left: 40%;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    height: auto;
-  } */
+  .types_col {
+    margin: 15px auto;
+  }
 
   .nav {
     flex-wrap: wrap;
   }
-
-  /* .nav_item {
-    display: block;
-    margin: 2px;
-  } */
 
   .nav_item + .nav_item {
     margin-left: 10px;
@@ -311,19 +327,24 @@ input[type="checkbox"]:not(old) + label {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
   .hero {
     display: none;
   }
   .nav {
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    display: none;
   }
   .type {
-    width: 50px !important;
+    width: 70px !important;
+  }
+
+  .types_col {
+    margin: 15px auto;
   }
   .type h2 {
     font-size: 12px !important;
-    font-weight: 200;
+    /* font-weight: 200; */
   }
   .navbar {
     width: 100%;
@@ -334,9 +355,21 @@ input[type="checkbox"]:not(old) + label {
     height: auto;
   }
   .nav {
-    margin: 50px auto 0 auto;
+    margin: 0 auto 0 auto;
   }
   .nav_item {
     margin: 5px;
+  }
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    width: 100px;
+    height: auto;
+    margin: 30px auto 10px auto;
+    color: #009499;
+    margin-left: auto;
+
+    color: white;
   }
 }

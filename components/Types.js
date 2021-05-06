@@ -75,30 +75,58 @@ export default function Types({
   return (
     <>
       <div className="types">
-        {types.map((t, i) => {
-          return (
-            <div
-              key={i}
-              onClick={(e) => t.fun(e.target.checked)}
-              key={i}
-              className="type "
-            >
-              <Image src={t.image} width={180} height={100} />
-              <div style={{ marginTop: "15px" }} className="radio">
-                <input
-                  type="checkbox"
-                  id={t.title}
-                  name={t.title}
-                  value={t.title}
-                />
-                <label htmlFor={t.title} className={t.class}>
-                  {t.title}
-                </label>
+        <div className="types_col">
+          {types.slice(0, 3).map((t, i) => {
+            return (
+              <div
+                key={i}
+                onClick={(e) => t.fun(e.target.checked)}
+                key={i}
+                className="type "
+              >
+                <Image src={t.image} width={180} height={100} />
+                <div style={{ marginTop: "15px" }} className="radio">
+                  <input
+                    type="checkbox"
+                    id={t.title}
+                    name={t.title}
+                    value={t.title}
+                  />
+                  <label htmlFor={t.title} className={t.class}>
+                    {t.title}
+                  </label>
+                </div>
               </div>
-            </div>
-          );
-          // }
-        })}
+            );
+            // }
+          })}
+        </div>
+        <div className="types_col">
+          {types.slice(3, 6).map((t, i) => {
+            return (
+              <div
+                key={i}
+                onClick={(e) => t.fun(e.target.checked)}
+                key={i}
+                className="type "
+              >
+                <Image src={t.image} width={180} height={100} />
+                <div style={{ marginTop: "15px" }} className="radio">
+                  <input
+                    type="checkbox"
+                    id={t.title}
+                    name={t.title}
+                    value={t.title}
+                  />
+                  <label htmlFor={t.title} className={t.class}>
+                    {t.title}
+                  </label>
+                </div>
+              </div>
+            );
+            // }
+          })}
+        </div>
       </div>
     </>
   );
