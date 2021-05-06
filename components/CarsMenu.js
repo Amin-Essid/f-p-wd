@@ -1,18 +1,9 @@
-// second_section
-import Head from "next/head";
-import Link from "next/link";
-import { useEffect } from "react";
-import firebase from "../firebase/clientApp";
-// import rectangle from "../images/header_rectangle.png";
-// import gladiator from "../images/gladiatorbasica_thumbnail.png";
-
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function fiterData(
   data,
-  type,
   carvane,
   brand,
   model,
@@ -25,14 +16,12 @@ function fiterData(
   integral
 ) {
   let cars = data;
-  // console.log(data, type, carvane, brand, model, range);
   console.log("old :" + oldCarvane);
   console.log(cell4x4, camper, perfilada, capuchina, integral);
   if (cell4x4 || camper || perfilada || capuchina || integral) {
     let typedCars = [];
     if (cell4x4) {
       let temp = cars.filter((car) => car.type === "cell4x4");
-      console.log(temp);
       typedCars = typedCars.concat(temp);
     }
     if (camper) {
@@ -57,12 +46,15 @@ function fiterData(
     }
     cars = typedCars;
   }
-  console.log(cars);
+
   if (carvane && !oldCarvane) {
     cars = cars.filter((car) => car.new === true);
+    console.log(cars);
+    console.log("aasbba");
   }
   if (oldCarvane && !carvane) {
     cars = cars.filter((car) => car.new === false);
+    console.log(cars);
     console.log("aasbba");
   }
   if (brand) {
@@ -79,7 +71,6 @@ function fiterData(
 }
 
 export default function CarsMenu({
-  type,
   carvane,
   brand,
   model,
@@ -94,7 +85,6 @@ export default function CarsMenu({
 }) {
   cars = fiterData(
     cars,
-    type,
     carvane,
     brand,
     model,

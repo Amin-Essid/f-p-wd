@@ -59,7 +59,6 @@ export default function Home({ cars }) {
           integral={integral}
         />
         <CarsMenu
-          type={type}
           carvane={carvane}
           brand={brand}
           model={model}
