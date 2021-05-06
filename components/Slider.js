@@ -1,28 +1,15 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 
-const useStyles = makeStyles({
-  root: {
-    width: 300,
-  },
-});
-
-// function valuetext(value) {
-//   return `${value}$`;
-// }
-
 export default function RangeSlider({ range, setRange }) {
-  const classes = useStyles();
-
   const handleChange = (event, newValue) => {
     setRange(newValue);
   };
 
   return (
     <>
-      <div className={classes.root}>
+      <div className="slider">
         <Typography
           style={{
             fontSize: "36px",

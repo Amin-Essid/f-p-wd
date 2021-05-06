@@ -208,6 +208,10 @@ input[type="checkbox"]:not(old) + label {
   height: 50px;
 }
 
+.slider {
+  width: 300px;
+}
+
 .minmax {
   display: inline-block;
   width: 100px;
@@ -329,7 +333,7 @@ input[type="checkbox"]:not(old) + label {
 
 @media only screen and (max-width: 850px) {
   .hero {
-    display: none;
+    height: 200px;
   }
   .nav {
     /* margin-top: 50px; */
@@ -371,5 +375,17 @@ input[type="checkbox"]:not(old) + label {
     margin-left: auto;
 
     color: white;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .types {
+    margin-top: 170px;
+  }
+  .hero {
+    display: none;
+  }
+  .slider {
+    width: 200px;
   }
 }
