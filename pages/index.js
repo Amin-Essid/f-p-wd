@@ -36,7 +36,7 @@ export default function Home({ cars }) {
       </Head>
 
       <main>
-        <Header />
+        <Header banner="/corner.png" />
         <MainFilter
           type={type}
           setType={setType}
@@ -81,7 +81,6 @@ export default function Home({ cars }) {
 export async function getStaticProps(context) {
   const db = firebase.firestore();
   const suggestionsRef = db.collection("vehicles");
-  const query = suggestionsRef;
 
   // const [suggestions] = useCollectionData(query, { idField: "ref" });
   let cars = [];
@@ -90,7 +89,11 @@ export async function getStaticProps(context) {
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        cars.push(doc.data());
+        let car = {
+          id: doc.id,
+          data: doc.data(),
+        };
+        cars.push(car);
         // console.log(doc.id, " => ", doc.data());
       });
     })

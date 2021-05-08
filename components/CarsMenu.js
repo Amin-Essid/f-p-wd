@@ -1,3 +1,4 @@
+import Link from "next/link";
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -21,26 +22,26 @@ function fiterData(
   if (cell4x4 || camper || perfilada || capuchina || integral) {
     let typedCars = [];
     if (cell4x4) {
-      let temp = cars.filter((car) => car.type === "cell4x4");
+      let temp = cars.filter((car) => car.data.type === "cell4x4");
       typedCars = typedCars.concat(temp);
     }
     if (camper) {
-      let temp = cars.filter((car) => car.type === "camper");
+      let temp = cars.filter((car) => car.data.type === "camper");
       typedCars.concat(temp);
       typedCars = typedCars.concat(temp);
     }
     if (perfilada) {
-      let temp = cars.filter((car) => car.type === "perfilada");
+      let temp = cars.filter((car) => car.data.type === "perfilada");
       typedCars.concat(temp);
       typedCars = typedCars.concat(temp);
     }
     if (capuchina) {
-      let temp = cars.filter((car) => car.type === "capuchina");
+      let temp = cars.filter((car) => car.data.type === "capuchina");
       typedCars.concat(temp);
       typedCars = typedCars.concat(temp);
     }
     if (integral) {
-      let temp = cars.filter((car) => car.type === "integral");
+      let temp = cars.filter((car) => car.data.type === "integral");
       typedCars.concat(temp);
       typedCars = typedCars.concat(temp);
     }
@@ -48,24 +49,24 @@ function fiterData(
   }
 
   if (carvane && !oldCarvane) {
-    cars = cars.filter((car) => car.new === true);
+    cars = cars.filter((car) => car.data.new === true);
     console.log(cars);
     console.log("aasbba");
   }
   if (oldCarvane && !carvane) {
-    cars = cars.filter((car) => car.new === false);
+    cars = cars.filter((car) => car.data.new === false);
     console.log(cars);
     console.log("aasbba");
   }
   if (brand) {
-    cars = cars.filter((car) => car.brand === brand);
+    cars = cars.filter((car) => car.data.brand === brand);
   }
   if (model) {
-    cars = cars.filter((car) => car.model === model);
+    cars = cars.filter((car) => car.data.model === model);
   }
   if (range.length > 0) {
-    cars = cars.filter((car) => car.price >= range[0] * 1000);
-    cars = cars.filter((car) => car.price <= range[1] * 1000);
+    cars = cars.filter((car) => car.data.price >= range[0] * 1000);
+    cars = cars.filter((car) => car.data.price <= range[1] * 1000);
   }
   return cars;
 }
@@ -83,6 +84,7 @@ export default function CarsMenu({
   capuchina,
   integral,
 }) {
+  console.log(cars);
   cars = fiterData(
     cars,
     carvane,
@@ -115,42 +117,55 @@ export default function CarsMenu({
         <div className="cars">
           {!cars && <div>LOADING ...</div>}
           {cars &&
-            cars.map((car, i) => (
-              <div key={i} className="car">
-                <img
-                  style={{ width: "200px", height: "150px" }}
-                  src={car.image}
-                />
-                <div
-                  style={{
-                    fontSize: "18px",
-                    margin: "10px 0",
-                    fontWeight: "200",
-                    color: "grey",
-                  }}
-                >{`REF: ${car.ref}`}</div>
-                <div
-                  style={{
-                    fontSize: "24px",
-                    fontWeight: "500",
-                  }}
-                >
-                  {car.name}
-                </div>
-                <div
-                  style={{
-                    color: "#ff5300",
-                    fontSize: "36px",
-                    margin: "10px 0",
-                  }}
-                >{`£${numberWithCommas(car.price)}`}</div>
-                <div className="more">
-                  <div style={{ margin: "0 auto", width: "100px" }}>
-                    More Details &#8594;
+            cars.map((car) => {
+              console.log(car);
+              let id = car.id;
+              car = car.data;
+              return (
+                <div key={id} className="car">
+                  <img
+                    style={{ width: "200px", height: "150px" }}
+                    src={car.image}
+                  />
+                  <div
+                    style={{
+                      fontSize: "18px",
+                      margin: "10px 0",
+                      fontWeight: "200",
+                      color: "grey",
+                    }}
+                  >{`REF: ${car.ref}`}</div>
+                  <div
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {car.name}
+                  </div>
+                  <div
+                    style={{
+                      color: "#ff5300",
+                      fontSize: "36px",
+                      margin: "10px 0",
+                    }}
+                  >{`£${numberWithCommas(car.price)}`}</div>
+                  <div className="more">
+                    <Link href={`vehicles/${id}`}>
+                      <div
+                        style={{
+                          margin: "0 auto",
+                          width: "100px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        More Details &#8594;
+                      </div>
+                    </Link>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       </div>
     </>
