@@ -9,7 +9,12 @@ export default function Header({ banner }) {
     <>
       <div className="header">
         <div className="top_shape"></div>
-        <Banner img={banner} />
+        <Image
+          width={495}
+          height={324}
+          className="rectangle"
+          src="/corner.png"
+        />
         <div className="navbar">
           <Nav />
         </div>
@@ -17,7 +22,7 @@ export default function Header({ banner }) {
           <Image width={301} height={363} src="/logo.png" />
         </div>
         <div className="hero">
-          <Image id="banner" layout="fill" src="/hero.png" />
+          <Banner img={banner} />
         </div>
       </div>
     </>

@@ -1,0 +1,85 @@
+.vp_title {
+  background-color: #009499;
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.vp_title_name,
+.vp_title_price {
+  color: white;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.vp_title_icons {
+  height: 60px;
+  display: flex;
+  width: 120px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vp_dash {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.vp_dash_info {
+  font-family: OstrichSans-regular;
+  max-width: 400px;
+}
+
+.vp_dash_info-title {
+  font-weight: 800;
+  font-size: 40px;
+  margin: 0 0 20px 0;
+}
+
+.vp_dash_info-item {
+  margin: 20px 0;
+  max-width: 380px;
+  font-weight: 500;
+}
+
+.vp_dash_formula {
+  width: 400px;
+  height: 400px;
+  background-color: #bcb914;
+  border-radius: 5px;
+}
+
+.vp_dash_formula-title {
+  font-size: 40px;
+  padding: 30px 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.vp_dash_formula-result {
+  text-align: center;
+}
+.vp_mobile_image {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  /* .vp_title {
+    margin-top: 150px;
+  } */
+  .vp_title_name,
+  .vp_title_price {
+    font-size: 30px;
+  }
+  .vp_title_price {
+    margin-left: 20px;
+  }
+  .vp_mobile_image {
+    display: block;
+    margin-top: 150px;
+  }
+}

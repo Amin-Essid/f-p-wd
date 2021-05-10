@@ -36,7 +36,7 @@ export default function Home({ cars }) {
       </Head>
 
       <main>
-        <Header banner="/corner.png" />
+        <Header banner="/hero.png" />
         <MainFilter
           type={type}
           setType={setType}

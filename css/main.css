@@ -5,6 +5,13 @@
   font-weight: 400;
   font-display: swap; */
 }
+@font-face {
+  font-family: "OstrichSans-regular";
+  src: url("/fonts/OstrichSans-regular.ttf");
+  /* font-style: normal;
+  font-weight: 400;
+  font-display: swap; */
+}
 
 body {
   font-family: OstrichSans-Heavy;
@@ -64,6 +71,7 @@ body {
   margin: 0 50px 0 auto;
   color: #009499;
   margin-left: auto;
+  z-index: 1;
 }
 
 .nav_item {
