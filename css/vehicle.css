@@ -67,10 +67,13 @@
   display: none;
 }
 
+.vp_button {
+  width: 150px;
+  display: block;
+  margin: 50px auto;
+}
+
 @media only screen and (max-width: 500px) {
-  /* .vp_title {
-    margin-top: 150px;
-  } */
   .vp_title_name,
   .vp_title_price {
     font-size: 30px;

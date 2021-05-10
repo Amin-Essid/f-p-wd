@@ -5,6 +5,7 @@ import { getVehicle } from "../../utils/getVehicle";
 import Footer from "../../components/Footer";
 import Image from "next/image";
 import VehicleDetailsfrom from "../../components/VehicleDetails";
+import Button from "@material-ui/core/Button";
 
 export default function SSRPage({ data }) {
   function numberWithCommas(x) {
@@ -67,6 +68,19 @@ export default function SSRPage({ data }) {
           age={vehicle.new}
           info={vehicle.carateristicas}
         />
+        <div className="vp_button">
+          <Button
+            style={{
+              width: "15Opx",
+              height: "60px",
+              backgroundColor: "#ff5300",
+            }}
+            variant="contained"
+            color="secondary"
+          >
+            comprar
+          </Button>
+        </div>
       </main>
       <Footer />
     </>
