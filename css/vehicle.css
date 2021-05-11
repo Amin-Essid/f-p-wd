@@ -31,7 +31,7 @@
 
 .vp_dash_info {
   font-family: OstrichSans-regular;
-  max-width: 400px;
+  width: 400px;
 }
 
 .vp_dash_info-title {
@@ -42,13 +42,13 @@
 
 .vp_dash_info-item {
   margin: 20px 0;
-  max-width: 380px;
+  max-width: 350px;
   font-weight: 500;
 }
 
 .vp_dash_formula {
   width: 400px;
-  height: 400px;
+  height: 430px;
   background-color: #bcb914;
   border-radius: 5px;
 }
@@ -81,8 +81,7 @@
   .vp_title_price {
     margin-left: 20px;
   }
-  .vp_mobile_image {
-    display: block;
+  .vp_title {
     margin-top: 150px;
   }
 }
