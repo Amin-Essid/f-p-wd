@@ -73,6 +73,26 @@
   margin: 50px auto;
 }
 
+.gallery {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  inset: 0px;
+  top: 150px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .gallery {
+    top: 200px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .gallery {
+    top: 400px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .vp_title_name,
   .vp_title_price {
@@ -81,7 +101,7 @@
   .vp_title_price {
     margin-left: 20px;
   }
-  .vp_title {
+  /* .vp_title {
     margin-top: 150px;
-  }
+  } */
 }

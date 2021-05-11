@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import Image from "next/image";
 import VehicleDetailsfrom from "../../components/VehicleDetails";
 import Button from "@material-ui/core/Button";
-import ImageGallery from "react-image-gallery";
+// import ImageGallery from "react-image-gallery";
 
 export default function SSRPage({ data }) {
   function numberWithCommas(x) {
@@ -28,7 +28,7 @@ export default function SSRPage({ data }) {
       </Head>
 
       <main>
-        <Header banner={vehicle.mainImage} />
+        <Header images={vehicle.images} />
         <div className="vp_title">
           <div className="vp_title_name">{vehicle.name}</div>
           <div className="vp_title_price">{`£${numberWithCommas(
@@ -62,7 +62,7 @@ export default function SSRPage({ data }) {
           </div>
         </div>
 
-        <ImageGallery items={vehicle.images} />
+        {/* <ImageGallery items={vehicle.images} /> */}
         <VehicleDetailsfrom
           year={vehicle.year}
           age={vehicle.new}

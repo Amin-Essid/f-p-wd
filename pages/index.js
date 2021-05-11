@@ -25,8 +25,12 @@ export default function Home({ cars }) {
 
   const [range, setRange] = useState([0, 100]);
 
-  // console.log(cars);
-  console.log(oldCarvane);
+  let images = cars.map((car) => ({
+    original: car.data.mainImage,
+    thumbnail: car.data.mainImage,
+  }));
+
+  console.log(images);
 
   return (
     <div className="container">
@@ -36,7 +40,7 @@ export default function Home({ cars }) {
       </Head>
 
       <main>
-        <Header banner="/hero.png" />
+        <Header images={images} />
         <MainFilter
           type={type}
           setType={setType}

@@ -1,9 +1,11 @@
 import Image from "next/image";
-export default function Banner({ img }) {
+import ImageGallery from "react-image-gallery";
+
+export default function Banner({ img, images }) {
   let display;
-  if (img[0] === "/") {
+  if (img && img[0] === "/") {
     display = <Image id="banner" layout="fill" src={img} />;
-  } else {
+  } else if (img) {
     display = (
       <div
         style={{
@@ -14,6 +16,13 @@ export default function Banner({ img }) {
         }}
       >
         <img id="banner" src={img} style={{ width: "100%", height: "100%" }} />
+      </div>
+    );
+  }
+  if (images) {
+    display = (
+      <div className="gallery">
+        <ImageGallery items={images} />
       </div>
     );
   }

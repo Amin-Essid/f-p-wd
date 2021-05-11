@@ -4,7 +4,13 @@ import Banner from "../components/Banner";
 import Image from "next/image";
 import Nav from "../components/Nav";
 
-export default function Header({ banner }) {
+export default function Header({ banner, images }) {
+  let display;
+  if (banner) {
+    display = <Banner img={banner} />;
+  } else if (images) {
+    display = <Banner images={images} />;
+  }
   return (
     <>
       <div className="header">
@@ -21,9 +27,7 @@ export default function Header({ banner }) {
         <div className="logo">
           <Image width={301} height={363} src="/logo.png" />
         </div>
-        <div className="hero">
-          <Banner img={banner} />
-        </div>
+        <div className="hero">{display}</div>
       </div>
     </>
   );
