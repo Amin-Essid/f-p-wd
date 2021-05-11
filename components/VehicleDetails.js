@@ -1,23 +1,41 @@
-const calcPay = (p, pago, r, t) => {
-  let n = 12;
-  p = p - pago;
-  console.log(p, pago, r, t);
-  let first = ((r / n) * (1 + r / n) ** n) ** t;
-  console.log(first);
-  // console.log(p, pago, r, t);
-  let payment =
-    (p * ((r / n) * (1 + r / n) ** n) ** t) / (1 + ((r / n) ** n) ** t - 1);
-  return payment;
-};
+function PMT(ir, np, pv, fv, type) {
+  /*
+   * ir   - interest rate per month
+   * np   - number of periods (months)
+   * pv   - present value
+   * fv   - future value
+   * type - when the payments are due:
+   *        0: end of the period, e.g. end of month (default)
+   *        1: beginning of period
+   */
+  var pmt, pvif;
+
+  fv || (fv = 0);
+  type || (type = 0);
+
+  if (ir === 0) return -(pv + fv) / np;
+
+  pvif = Math.pow(1 + ir, np);
+  pmt = (-ir * (pv * pvif + fv)) / (pvif - 1);
+
+  if (type === 1) pmt /= 1 + ir;
+
+  return pmt;
+}
 
 export default function VehicleDetails({
   info,
   year,
   age,
+  interis,
   setPago,
   setAnos,
   setInteris,
   monthly,
+  anos,
+  pago,
+  price,
+  setMonthly,
 }) {
   let a = "";
   if (age === true) {
@@ -25,7 +43,25 @@ export default function VehicleDetails({
   } else {
     a = "usó";
   }
-  console.log(calcPay(110000, 10000, 0.06, 30));
+
+  const convert = (s, one) => {
+    let n = parseInt(s.replace(/\D/g, ""));
+    if (!Number(n) && one) {
+      n = 0.08333333333;
+    } else if (!Number(n)) {
+      n = 0;
+    }
+    console.log(n);
+    return n;
+  };
+
+  let ir = convert(interis) / 100 / 12,
+    np = 12 * convert(anos, true),
+    pv = price - convert(pago);
+  let m = PMT(ir, np, pv) * -1;
+  m = m.toFixed(2);
+  console.log(m);
+  setMonthly(m);
   return (
     <>
       <div className="vp_dash">

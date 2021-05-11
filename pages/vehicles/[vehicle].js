@@ -67,10 +67,15 @@ export default function SSRPage({ data }) {
           year={vehicle.year}
           age={vehicle.new}
           info={vehicle.carateristicas}
+          anos={anos}
+          interis={interis}
+          pago={pago}
+          price={vehicle.price}
           setInteris={setInteris}
           setAnos={setAnos}
           setPago={setPago}
           monthly={monthly}
+          setMonthly={setMonthly}
         />
         <div className="vp_button">
           <Button
