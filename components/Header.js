@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 // import gladiator from "../images/gladiatorbasica_thumbnail.png";
 import Image from "next/image";
 import Nav from "../components/Nav";
+import Link from "next/link";
 
 export default function Header({ banner, images }) {
   let display;
@@ -24,8 +25,10 @@ export default function Header({ banner, images }) {
         <div className="navbar">
           <Nav />
         </div>
-        <div className="logo">
-          <Image width={301} height={363} src="/logo.png" />
+        <div className="logo" style={{ cursor: "pointer" }}>
+          <Link href="/">
+            <Image width={301} height={363} src="/logo.png" />
+          </Link>
         </div>
         <div className="hero">{display}</div>
       </div>

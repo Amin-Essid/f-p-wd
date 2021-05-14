@@ -122,48 +122,53 @@ export default function CarsMenu({
               let id = car.id;
               car = car.data;
               return (
-                <div key={id} className="car">
-                  <img
-                    style={{ width: "200px", height: "150px" }}
-                    src={car.image}
-                  />
+                <Link href={`vehicles/${id}`} key={id}>
+                  {/* <Link href={`vehicles/${id}`}> */}
                   <div
+                    className="car"
                     style={{
-                      fontSize: "18px",
-                      margin: "10px 0",
-                      fontWeight: "200",
-                      color: "grey",
-                    }}
-                  >{`REF: ${car.ref}`}</div>
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "500",
+                      cursor: "pointer",
                     }}
                   >
-                    {car.name}
-                  </div>
-                  <div
-                    style={{
-                      color: "#ff5300",
-                      fontSize: "36px",
-                      margin: "10px 0",
-                    }}
-                  >{`£${numberWithCommas(car.price)}`}</div>
-                  <div className="more">
-                    <Link href={`vehicles/${id}`}>
+                    <img
+                      style={{ width: "200px", height: "150px" }}
+                      src={car.image}
+                    />
+                    <div
+                      style={{
+                        fontSize: "18px",
+                        margin: "10px 0",
+                        fontWeight: "200",
+                        color: "grey",
+                      }}
+                    >{`REF: ${car.ref}`}</div>
+                    <div
+                      style={{
+                        fontSize: "24px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      {car.name}
+                    </div>
+                    <div
+                      style={{
+                        color: "#ff5300",
+                        fontSize: "36px",
+                        margin: "10px 0",
+                      }}
+                    >{`£${numberWithCommas(car.price)}`}</div>
+                    <div className="more">
                       <div
                         style={{
                           margin: "0 auto",
                           width: "100px",
-                          cursor: "pointer",
                         }}
                       >
                         More Details &#8594;
                       </div>
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
         </div>

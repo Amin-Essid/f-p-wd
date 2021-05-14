@@ -84,7 +84,9 @@ export default function Types({
                 key={i}
                 className="type "
               >
+                {/* <div className="label-box"> */}
                 <Image src={t.image} width={180} height={100} />
+
                 <div style={{ marginTop: "15px" }} className="radio">
                   <input
                     type="checkbox"

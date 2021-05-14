@@ -6,7 +6,7 @@ import { getVehicle } from "../../utils/getVehicle";
 import Footer from "../../components/Footer";
 import Image from "next/image";
 import VehicleDetailsfrom from "../../components/VehicleDetails";
-import Button from "@material-ui/core/Button";
+import { Popup } from "../../components/Popup";
 // import ImageGallery from "react-image-gallery";
 
 export default function SSRPage({ data }) {
@@ -48,7 +48,7 @@ export default function SSRPage({ data }) {
               />
             </a>
             <a
-              href="https://www.whatsapp.com/"
+              href="https://wa.link/qqtau1"
               target="_blank"
               style={{ cursor: "pointer", height: "40px" }}
             >
@@ -77,19 +77,7 @@ export default function SSRPage({ data }) {
           monthly={monthly}
           setMonthly={setMonthly}
         />
-        <div className="vp_button">
-          <Button
-            style={{
-              width: "15Opx",
-              height: "60px",
-              backgroundColor: "#ff5300",
-            }}
-            variant="contained"
-            color="secondary"
-          >
-            comprar
-          </Button>
-        </div>
+        <Popup />
       </main>
       <Footer />
     </>
