@@ -21,7 +21,7 @@ export default function SSRPage({ data }) {
   const { vehicle } = data;
   console.log(vehicle);
   return (
-    <>
+    <div className="container">
       <Head>
         <title>{vehicle.name}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -80,7 +80,7 @@ export default function SSRPage({ data }) {
         <Popup />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -37,7 +37,7 @@ export const Popup = () => {
   const [popupClass, setPopupClass] = useState("overlay_hidden");
 
   const [formError, setFormError] = useState("");
-
+  //
   const classes = useStyles();
 
   const refreshData = () => {
@@ -66,7 +66,7 @@ export const Popup = () => {
       <div className={popupClass}>
         <div className="popup">
           <div>
-            <CssBaseline />
+            {/* <CssBaseline /> */}
             <div className={classes.paper}>
               <Typography component="h1" variant="h5">
                 Contact
@@ -92,6 +92,7 @@ export const Popup = () => {
                   const { email, name, phone } = values;
                   if (email != "" && name != "" && phone != "") {
                     console.log(name, email, phone);
+                    setPopupClass("overlay_hidden");
                   } else if (email === "") {
                     setFormError(`please verify your email`);
                   } else if (name === "") {
